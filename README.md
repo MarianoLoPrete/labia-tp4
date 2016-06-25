@@ -140,7 +140,7 @@ Para o algoritmo bayesiano simples sem `useSupervisedDiscretization` ativado, ob
 
 #### Redes neurais
 
-Primeiramente, foram treinadas 6 redes neurais diferentes, combinando os valores de `learning rate` de 0.1 e 0.3 e `hidden layers` de 5, 10 e 20, cujos resultados podem ser vistos na tabela a seguir.
+Primeiramente, foram treinadas 6 redes neurais diferentes, combinando os valores de `learning rate` de 0.1 e 0.3 e `hidden layers` de 5, 10 e 20, cujos resultados podem ser vistos na tabela a seguir. Os valores de `traning time = 100`, `reset = false` e restantes foram mantidos constantes.
 
 <center>
 
@@ -156,4 +156,41 @@ Primeiramente, foram treinadas 6 redes neurais diferentes, combinando os valores
 ###### Redes neurais com variações em `learning rate` e `hidden layers`
 </center>
 
-A rede com a melhor taxa de acerto é a de `learning rate = 0.3` e `hidden layers = 10` com o valor de 89.51%.
+A rede com a melhor taxa de acerto é a de `learning rate = 0.3` e `hidden layers = 10` com o valor de 89.51%. Uma camada escondida geralmente é suficiente, dado que o valor para duas camadas é idêntico ao com uma, excento quando os dados não são contínuos. Portanto, é possível que haja uma descontinuidade nos dados devido aos resultados piores para tanto com mais e menos camadas escondidas.
+
+A seguir, foram realizados simulações com `training time = 300` e `hidden layers = 10`, variando o `learning rate` em 0.1 e 0.3, com os resultados mostrados nas figuras a seguir.
+
+<center>
+![](weka/img/redeneural_01_10_300.png)
+###### Rede neural com  `training time = 300`, `hidden layers = 10` e `learning rate = 0.1`
+</center>
+
+`Time taken to build model: 16.05 seconds`
+
+`Correctly Classified Instances 1395 89.1944 %`
+
+<center>
+![](weka/img/redeneural_03_10_300.png)
+###### Rede neural com  `training time = 300`, `hidden layers = 10` e `learning rate = 0.3`
+</center>
+
+`Time taken to build model: 16.86 seconds`
+
+`Correctly Classified Instances 1409 90.0895 %`
+
+Aumentar o tempo de treinamento de 100 para 300 de fato melhorou as taxas de acertos para ambas taxas de aprendizado. No entanto, não há garantia de que isso sempre ocorra, dado que pode ocorrer o problema de _overtraining_ em que a rede se especializa em um determinado conjunto de dados e perde a capacidade de generalizar o conjunto como um todo.
+
+Para uma rede com `training time = 300`, `hidden layers = 5` e `learning rate = 0.3`, obteve-se a seguinte resposta:
+
+<center>
+![](weka/img/redeneural_03_5_300.png)
+###### Rede neural com  `training time = 300`, `hidden layers = 10` e `learning rate = 0.3`
+</center>
+
+`Time taken to build model: 8.76 seconds`
+
+`Correctly Classified Instances 1397 89.3223 %`
+
+De forma análoga aos resultados anteriores, a taxa de acerto foi, de fato, maior para um tempo de treinamento de 300 em relação ao tempo 100 mostrado anteriormente.
+
+Finalmente, foram feitos múltiplos experimentos variando o `learning rate`, `hidden layers` e `training time`.
