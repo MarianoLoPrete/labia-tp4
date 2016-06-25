@@ -116,10 +116,44 @@ A Weka acompanhou três tipos de algoritmos para a construção do filtro: uma �
 
 `Correctly Classified Instances 1446 92.4552 %`
 
-Rodando o algoritmo `trees/J48` sem `reduceErrorPruning` ativado, o tamanho da árvore obtida foi de 207, com 104 nós folhas, e a taxa de acerto é de 92.1995%. Tornando a opção `true`, tem-se uma árvore com tamanho 161 e número de nós 81, com taxa de acerto de 92.4552%.
+Rodando o algoritmo `trees/J48` sem `reduceErrorPruning` ativado, o tamanho da árvore obtida foi de 207, com 104 nós folhas, e a taxa de acerto é de 92.20%. Tornando a opção `true`, tem-se uma árvore com tamanho 161 e número de nós 81, com taxa de acerto de 92.46%.
 
 O algoritmo com `reduceErrorPruning` gera uma árvore aproximadamente 23% menor que o algoritmo sem a poda, o que é uma mudança significativa. A taxa de acerto permanece pouco alterada porque a poda remove seções da árvore que não contribuem muito para classificar se é ou não _spam_, evitando o sobreajuste do modelo, o que não afeta a taxa de acerto quantitativamente.
 
 #### _Bayes_ ingênuo
 
+<center>
+![](weka/img/bayes_sem.png)
+###### Algoritmo bayesiano simples sem `useSupervisedDiscretization`
+</center>
+
+`Correctly Classified Instances 1220 78.0051 %`
+
+<center>
+![](weka/img/bayes_com.png)
+###### Algoritmo bayesiano simples com `useSupervisedDiscretization`
+</center>
+
+`Correctly Classified Instances 1413 90.3453 %`
+
+Para o algoritmo bayesiano simples sem `useSupervisedDiscretization` ativado, obteve-se uma taxa de acerto de 78.01%, enquanto ativando a opção, obteve-se 90.36% de acerto, uma mudança significativa em relação ao anterior graças à alta sensibilidade do _bayers_ ingênuo às dimensões dos dados, que são alteradas quando ocorre a discretização e posterior contagem.
+
 #### Redes neurais
+
+Primeiramente, foram treinadas 6 redes neurais diferentes, combinando os valores de `learning rate` de 0.1 e 0.3 e `hidden layers` de 5, 10 e 20, cujos resultados podem ser vistos na tabela a seguir.
+
+<center>
+
+| parâmetros | tempo  | taxa de acerto | 
+| --- | :---: | :---: |
+| `learning rate = 0.1`<br>`hidden layers = 5` | 3.19 s | 89.3223% |
+| `learning rate = 0.1`<br>`hidden layers = 10` | 5.4 s | 88.2353% |
+| `learning rate = 0.1`<br>`hidden layers = 20` | 10.42 s | 88.8107% |
+| `learning rate = 0.3`<br>`hidden layers = 5` | 2.87 s | 85.8696% |
+| `learning rate = 0.3`<br>`hidden layers = 10` | 5.29 s | 89.5141% |
+| `learning rate = 0.3`<br>`hidden layers = 20` | 9.95 s | 88.8107% |
+
+###### Redes neurais com variações em `learning rate` e `hidden layers`
+</center>
+
+A rede com a melhor taxa de acerto é a de `learning rate = 0.3` e `hidden layers = 10` com o valor de 89.51%.
