@@ -193,4 +193,45 @@ Para uma rede com `training time = 300`, `hidden layers = 5` e `learning rate = 
 
 De forma análoga aos resultados anteriores, a taxa de acerto foi, de fato, maior para um tempo de treinamento de 300 em relação ao tempo 100 mostrado anteriormente.
 
-Finalmente, foram feitos múltiplos experimentos variando o `learning rate`, `hidden layers` e `training time`.
+Finalmente, foram feitos múltiplos experimentos considerando os valores iniciais de `learning rate = 0.1`, `hidden layers = 1` e `training time = 100`. Com esses valores, foram obtidos os resultados:
+
+`Time taken to build model: 0.96 seconds`
+
+`Correctly Classified Instances 1393 89.0665 %`
+
+A partir desses valores, foram realizados variando `learning rate`, `hidden layers` e `training time`, um de cada vez, cujos resultados são mostrados nas tabelas a seguir.
+
+<center>
+
+| parâmetros | tempo  | taxa de acerto | 
+| --- | :---: | :---: |
+| `learning rate = 0.2`<br>`hidden layers = 1`<br>`training time = 100` | 0.98 s | 89.9616% |
+| `learning rate = 0.5`<br>`hidden layers = 1`<br>`training time = 100` | 0.95 s | 90.6010% |
+| `learning rate = 1`<br>`hidden layers = 1`<br>`training time = 100` | 0.94 s | 60.7417% |
+
+###### Rede neural com `hidden layers = 1` e `training time = 100`, variando `learning rate` em `0.2`, `0.5` e `1`
+</center>
+
+<center>
+
+| parâmetros | tempo  | taxa de acerto | 
+| --- | :---: | :---: |
+| `learning rate = 0.1`<br>`hidden layers = 2`<br>`training time = 100` | 1.43 s | 89.3862% |
+| `learning rate = 0.1`<br>`hidden layers = 5`<br>`training time = 100` | 2.95 s | 89.3223% |
+| `learning rate = 0.1`<br>`hidden layers = 10`<br>`training time = 100` | 5.45 s | 88.2353% |
+
+###### Rede neural com `learning rate = 0.1` e `training time = 100`, variando `hidden layers` em `1`, `2` e `5`
+</center>
+
+<center>
+
+| parâmetros | tempo  | taxa de acerto | 
+| --- | :---: | :---: |
+| `learning rate = 0.1`<br>`hidden layers = 1`<br>`training time = 200` | 1.95 s | 88.9386% |
+| `learning rate = 0.1`<br>`hidden layers = 1`<br>`training time = 500` | 4.73 s | 89.7059% |
+| `learning rate = 0.1`<br>`hidden layers = 1`<br>`training time = 1000` | 9.12 s | 90.7928% |
+
+###### Rede neural com `learning rate = 0.1` e `hidden layers = 1`, variando `training time` em `200`, `500` e `1000`
+</center>
+
+A taxa de aprendizagem possui uma grande influencia nos dados, dado que quando foi variada, causou a disparidade entre os três primeiros (onde só foi aumentando) e a última variação (onde houve uma drástica perda de aproximadamente 30% de acerto). Já as camadas escondidas não tiveram uma grande variação entre os resutaldos, bem como a variação do tempo de aprendizagem, que diminui ao passar o tempo de 100 para 200, mas só aumenta posteriormente. Uma causa para a randomicidade aparente dos resultados é a descontinuidade dos dados, que afetou o resultado anteriormente e pode estar atrelada à essa característica aleatória.
