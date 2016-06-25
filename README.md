@@ -5,7 +5,7 @@ LABORATÓRIO DE INTELIGÊNCIA ARTIFICIAL<br>
 Prof. Flávio Cruzeiro
 </strong>
 
-### TRABALHO PRÁTICO 4 <br>Lógica _Fuzzy_, _Perceptron_ & RNA, e WEKA
+### TRABALHO PRÁTICO 4 <br>Lógica _Fuzzy_, _Perceptron_ e RNA & Weka
 <strong>
 por Pedro Felipe Froes e Saulo Antunes
 </strong>
@@ -78,7 +78,7 @@ Além do gráfico de superfície acima, é possível visualizar algumas possíve
 
 ## Parte 2: _Perceptron_ & RNA
 
-Perceptron são redes neurais simples constituídas através de uma camada de entrada, onde cada entrada possui um peso, e uma única camada de saída, que corresponde ao valor da soma do produto entre cada entrada e seu respectivo peso dentro da rede.
+_Perceptron_ é uma rede neural simples constituída através de uma camada de entrada, onde cada entrada possui um peso, e uma única camada de saída, que corresponde ao valor da soma do produto entre cada entrada e seu respectivo peso dentro da rede.
 
 Será implementado um _perceptron_ de três entradas e duas saídas para as funções `E` e `OU` através da _toolbox_ RNA do MATLAB, com o _perceptron_ sendo treinado através da Regra Delta. A rede neural produz uma saída assim que um padrão é apresentado a ela, sendo que há o ajuste dos pesos para que o resultado esperado seja atingido.
 
@@ -90,5 +90,36 @@ Os comandos para a construção das duas regras podem ser conferidos abaixo:
 
 #### Regra `OU`
 
-## Parte 3: WEKA
+## Parte 3: Weka
 
+A ferramenta Weka foi desenvolvida na Universidade de Waikato, Nova Zelândia, e permite o acompanhamento de alguns algoritmos de aprendizagem de máquina. Uma de suas possíveis aplicações é na construção de um filtro de _spans_ para uma caixa de entrada de um email. Para isso, foi utilizada a _spambase_, uma base de dados produzida pelo grupo de pesquisa do Hewlett-Packyard Labs, onde pouco menos que a metade dos 4600 emails são _spans_ (1813 _spans_, 2788 não _spans_).
+
+A Weka acompanhou três tipos de algoritmos para a construção do filtro: uma árvore de decisão, um _bayes_ ingênuo e redes neurais, e o resultado obtido com cada um deles é exibido a seguir.
+
+#### Árvore de Decisão
+
+<center>
+![](weka/img/arvoredecisao_sem.png)
+###### Árvore de decisão sem `reduceErrorPruning`
+</center>
+
+`Size of the tree : 207`
+
+`Correctly Classified Instances 1442 92.1995 %`
+
+<center>
+![](weka/img/arvoredecisao_com.png)
+###### Árvore de decisão com `reduceErrorPruning`
+</center>
+
+`Size of the tree : 161`
+
+`Correctly Classified Instances 1446 92.4552 %`
+
+Rodando o algoritmo `trees/J48` sem `reduceErrorPruning` ativado, o tamanho da árvore obtida foi de 207, com 104 nós folhas, e a taxa de acerto é de 92.1995%. Tornando a opção `true`, tem-se uma árvore com tamanho 161 e número de nós 81, com taxa de acerto de 92.4552%.
+
+O algoritmo com `reduceErrorPruning` gera uma árvore aproximadamente 23% menor que o algoritmo sem a poda, o que é uma mudança significativa. A taxa de acerto permanece pouco alterada porque a poda remove seções da árvore que não contribuem muito para classificar se é ou não _spam_, evitando o sobreajuste do modelo, o que não afeta a taxa de acerto quantitativamente.
+
+#### _Bayes_ ingênuo
+
+#### Redes neurais
