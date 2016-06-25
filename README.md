@@ -5,7 +5,7 @@ LABORATÓRIO DE INTELIGÊNCIA ARTIFICIAL<br>
 Prof. Flávio Cruzeiro
 </strong>
 
-# Trabalho Prático 4: Lógica _Fuzzy_, RNA e WEKA
+### TRABALHO PRÁTICO 4 <br>Lógica _Fuzzy_, _Perceptron_ & RNA, e WEKA
 <strong>
 por Pedro Felipe Froes e Saulo Antunes
 </strong>
@@ -15,7 +15,7 @@ A lógica _fuzzy_ (ou lógica difusa) é uma lógica que procura modelar o racic
 
 A seguir, foram modelados dois problemas utilizando a lógica _fuzzy_ a fim de exemplificar possíveis aplicações para essa lógica.
 
-### Problema 1: Capturando um Pokémon
+#### Problema 1: Capturando um Pokémon
 
 Na franquia Pokémon, o processo de captura de um Pokémon envolve principalmente a _catch rate_ do mesmo (uma taxa de captura, única para cada Pokémon) e o quão enfraquecido ele se encontra (quanto menor for seu HP, mais enfraquecido ele está). Combinadas, elas influenciam _capture rate_, ou seja, na chance de capturar ou não o Pokémon.
 
@@ -74,7 +74,21 @@ Além do gráfico de superfície acima, é possível visualizar algumas possíve
 ###### _catch rate_ alta, HP médio
 </center>
 
-### Problema 2:
+#### Problema 2:
 
-## Parte 2: RNA
+## Parte 2: _Perceptron_ & RNA
+
+Perceptron são redes neurais simples constituídas através de uma camada de entrada, onde cada entrada possui um peso, e uma única camada de saída, que corresponde ao valor da soma do produto entre cada entrada e seu respectivo peso dentro da rede.
+
+Será implementado um _perceptron_ de três entradas e duas saídas para as funções `E` e `OU` através da _toolbox_ RNA do MATLAB, com o _perceptron_ sendo treinado através da Regra Delta. A rede neural produz uma saída assim que um padrão é apresentado a ela, sendo que há o ajuste dos pesos para que o resultado esperado seja atingido.
+
+Após definir o _perceptron_ através do comando `newp`, deve definir-se os _inputs_ de entrada e saída. Posteriormente, inicializa-se a rede através do comando `sim` e define-se os padrões de treinamento, e, finalmente, deve-se treinar a rede com o comando `train`.
+
+Os comandos para a construção das duas regras podem ser conferidos abaixo:
+
+#### Regra `E`
+
+#### Regra `OU`
+
+## Parte 3: WEKA
 
