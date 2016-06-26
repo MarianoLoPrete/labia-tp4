@@ -74,7 +74,73 @@ Além do gráfico de superfície acima, é possível visualizar algumas possíve
 ###### _catch rate_ alta, HP médio
 </center>
 
-#### Problema 2:
+#### Problema 2: Maratona de Programação
+
+No treinamento para a **Maratona de Programação**, os alunos se deparam com uma grande quantidade de problemas disponíveis para serem resolvidos. Existem problemas antigos, que já estão disponíveis há anos, e também há sempre novos problemas disponíveis.
+
+Para ajudar a escolha dos problemas, foi modelada uma lógica fuzzy que permite identificar a dificuldade do problema de acordo com o **tempo de publicação** e a **quantidade de soluções** submetidas para um problema.
+
+##### Tempo de Publicação
+
+A primeira variável está relacionada ao tempo de publicação (em meses) que o problema possui.
+
+<center>
+![](fuzzy/maratona/img/tempo.png)
+###### Tempo de Publicação *(em meses)*
+</center>
+
+##### Soluções Submetidas
+
+A segunda variável está relacionada a quantidade de soluções submetidas e aceitas que um problema possui.
+
+<center>
+![](fuzzy/maratona/img/solucoes.png)
+###### Soluções Submetidas
+</center>
+
+##### Dificuldade
+
+A saída relaciona um nível de dificuldade para o problema.
+
+<center>
+![](fuzzy/maratona/img/dificuldade.png)
+###### Dificuldade do Problema
+</center>
+
+##### Regras
+
+Abaixo, o conjunto de regras fuzzy utilizado:
+
+* se **Tempo de Publicação é Recente** e **Quantidade de Soluções é Médio**, então **Dificuldade não é Difícil**;
+* se **Tempo de Publicação é Recente** e **Quantidade de Soluções é Muito**, então **Dificuldade é Fácil**;
+* se **Tempo de Publicação é Médio** e **Quantidade de Soluções é Pouco**, então **Dificuldade não é Fácil**;
+* se **Tempo de Publicação é Médio** e **Quantidade de Soluções é Médio**, então **Dificuldade é Médio**;
+* se **Tempo de Publicação é Médio** e **Quantidade de Soluções é Muito**, então **Dificuldade é Fácil**;
+* se **Tempo de Publicação é Antigo** e **Quantidade de Soluções é Pouco**, então **Dificuldade é Difícil**;
+* se **Tempo de Publicação é Antigo** e **Quantidade de Soluções é Médio**, então **Dificuldade não Difícil**;
+* se **Tempo de Publicação é Antigo** e **Quantidade de Soluções é Muito**, então **Dificuldade não é Difícil**.
+
+
+Podemos ver através de algumas simulações, que um problema, mesmo que com o mesmo número de soluções, resulta em diferentes níveis de dificuldade com a variação do seu tempo de publicação, como era de se esperar.
+
+<center>
+![](fuzzy/maratona/img/regras1.png)
+###### 100 soluções em 6 meses
+</center>
+
+<center>
+![](fuzzy/maratona/img/regras2.png)
+###### 100 soluções em 12 meses
+</center>
+
+##### Gráfico de Superfície
+O gráfico de superfície proporciona uma visão bastante intuitiva de como as variáveis **tempo de publicação** e **soluções submetidas** influenciam na dificuldade do problema.
+
+<center>
+![](fuzzy/maratona/img/superficie.png)
+##### Gráfico de Superfície
+</center>
+
 
 ## Parte 2: _Perceptron_ & RNA
 
