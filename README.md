@@ -148,13 +148,71 @@ _Perceptron_ é uma rede neural simples constituída através de uma camada de e
 
 Será implementado um _perceptron_ de três entradas e duas saídas para as funções `E` e `OU` através da _toolbox_ RNA do MATLAB, com o _perceptron_ sendo treinado através da Regra Delta. A rede neural produz uma saída assim que um padrão é apresentado a ela, sendo que há o ajuste dos pesos para que o resultado esperado seja atingido.
 
-Após definir o _perceptron_ através do comando `newp`, deve definir-se os _inputs_ de entrada e saída. Posteriormente, inicializa-se a rede através do comando `sim` e define-se os padrões de treinamento, e, finalmente, deve-se treinar a rede com o comando `train`.
+Para a execução do _perceptron_ inicialmente foram definidos os padrões de entrada e saída. Posteriormente foi inicializada a rede com o comando `perceptron` e então foi realizado o treinamento da rede. Através do comando `sim` é retornado a resposta do modelo simulado utilizando os dados de entrada, e que pode ser visualizada na saída do console do Matlab confirmando o valor esperado.
 
 Os comandos para a construção das duas regras podem ser conferidos abaixo:
 
 #### Regra `E`
 
+```Matlab
+in     = [0 0 0 0 1 1 1 1;
+		  0 0 1 1 0 0 1 1;
+		  0 1 0 1 0 1 0 1];
+
+outAND = [0 0 0 0 0 0 0 1];
+net = perceptron;
+net = train(net, in, outAND);
+view(net);
+resultAND = sim(net, in)
+``` 
+
+O resultado:
+
+```Matlab
+resultAND =
+
+     0     0     0     0     0     0     0     1
+```
+
+<center>
+![](fuzzy/maratona/img/and1.png)
+</center>
+
+<center>
+![](fuzzy/maratona/img/and2.png)
+##### View AND
+</center>
+
 #### Regra `OU`
+
+```Matlab
+in     = [0 0 0 0 1 1 1 1;
+		  0 0 1 1 0 0 1 1;
+		  0 1 0 1 0 1 0 1];
+
+outOR  = [0 1 1 1 1 1 1 1];
+net = perceptron;
+net = train(net, in, outOR);
+view(net);
+resultOR = sim(net, in)
+```
+
+O resultado:
+
+```Matlab
+resultOR =
+
+     0     1     1     1     1     1     1     1
+```
+
+<center>
+![](fuzzy/maratona/img/or1.png)
+</center>
+
+<center>
+![](fuzzy/maratona/img/or2.png)
+##### View OR
+</center>
 
 ## Parte 3: Weka
 
